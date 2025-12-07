@@ -1,7 +1,7 @@
 import time
 import random
 
-# --- 1. АЛГОРИТМИ СОРТУВАННЯ ---
+# --- 1. РђР›Р“РћР РРўРњР РЎРћР РўРЈР’РђРќРќРЇ ---
 
 def bubble_sort(arr):
     n = len(arr)
@@ -58,7 +58,7 @@ def quick_sort(arr):
     right = [x for x in arr if x > pivot]
     return quick_sort(left) + middle + quick_sort(right)
 
-# --- 2. ПОШУК МАКСИМУМУ ---
+# --- 2. РџРћРЁРЈРљ РњРђРљРЎРРњРЈРњРЈ ---
 
 def find_max_ops(arr):
     ops = 0
@@ -81,7 +81,7 @@ def find_max_time(arr):
     end = time.perf_counter()
     return max_val, (end - start) * 1000 
 
-# --- 3. ЛІНІЙНИЙ ПОШУК ---
+# --- 3. Р›Р†РќР†Р™РќРР™ РџРћРЁРЈРљ ---
 
 def linear_search(arr, key):
     start = time.perf_counter()
@@ -92,7 +92,7 @@ def linear_search(arr, key):
     end = time.perf_counter()
     return -1, (end - start) * 1000
 
-# --- 4. МАТРИЦІ ---
+# --- 4. РњРђРўР РР¦Р† ---
 
 def generate_matrix(rows, cols):
     return [[random.randint(1, 10) for _ in range(cols)] for _ in range(rows)]
@@ -129,27 +129,27 @@ def matrix_mult(A, B):
     return C, (end - start) * 1000
 
 if __name__ == "__main__":
-    # Дані для сортування
+    # Р”Р°РЅС– РґР»СЏ СЃРѕСЂС‚СѓРІР°РЅРЅСЏ
     test_arr = [64, 34, 25, 12, 22, 11, 90]
-    print(f"\nВхідний масив: {test_arr}")
+    print(f"\nР’С…С–РґРЅРёР№ РјР°СЃРёРІ: {test_arr}")
     print(f"Bubble Sort: {bubble_sort(test_arr)}")
     print(f"Quick Sort: {quick_sort(test_arr)}")
     
-    # Тест пошуку максимуму
+    # РўРµСЃС‚ РїРѕС€СѓРєСѓ РјР°РєСЃРёРјСѓРјСѓ
     max_val, ops = find_max_ops(test_arr)
-    print(f"\nПошук максимуму (значення): {max_val}, Операцій: {ops}")
+    print(f"\nРџРѕС€СѓРє РјР°РєСЃРёРјСѓРјСѓ (Р·РЅР°С‡РµРЅРЅСЏ): {max_val}, РћРїРµСЂР°С†С–Р№: {ops}")
     
-    # Тест лінійного пошуку
+    # РўРµСЃС‚ Р»С–РЅС–Р№РЅРѕРіРѕ РїРѕС€СѓРєСѓ
     idx, t = linear_search(test_arr, 22)
-    print(f"Лінійний пошук (число 22): індекс {idx}, час {t:.5f} мс")
+    print(f"Р›С–РЅС–Р№РЅРёР№ РїРѕС€СѓРє (С‡РёСЃР»Рѕ 22): С–РЅРґРµРєСЃ {idx}, С‡Р°СЃ {t:.5f} РјСЃ")
     
-    # Матриці
-    print("\n--- Матриці ---")
+    # РњР°С‚СЂРёС†С–
+    print("\n--- РњР°С‚СЂРёС†С– ---")
     m1 = generate_matrix(50, 50)
     m2 = generate_matrix(50, 50)
     
     _, t_add = matrix_add(m1, m2)
-    print(f"Додавання матриць 50x50: {t_add:.5f} мс")
+    print(f"Р”РѕРґР°РІР°РЅРЅСЏ РјР°С‚СЂРёС†СЊ 50x50: {t_add:.5f} РјСЃ")
     
     _, t_mult = matrix_mult(m1, m2)
-    print(f"Множення матриць 50x50: {t_mult:.5f} мс")
+    print(f"РњРЅРѕР¶РµРЅРЅСЏ РјР°С‚СЂРёС†СЊ 50x50: {t_mult:.5f} РјСЃ")
